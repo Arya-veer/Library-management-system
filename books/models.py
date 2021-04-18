@@ -12,8 +12,7 @@ class Book(models.Model):
     location = models.TextField()
     available = models.BooleanField(default=True)
 
-
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
 
