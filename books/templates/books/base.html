@@ -12,8 +12,9 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'books/main.css' %}">
 
-
+    {% block title %}
         <title>{{ title}}</title>
+    {% endblock %}
 
 </head>
 <body>
@@ -32,7 +33,11 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
-                  <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                  <div class="image-container">
+                      <a href="{% url 'profile' %}">
+                      <img class="rounded-circle article-image img-fluid img-pro"  src="{{ user.profile.image.url }}">
+                    </a>
+                  </div>
                   <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 
               {% else %}

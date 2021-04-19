@@ -82,3 +82,13 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
+
+  .img-pro {
+    width: 50px ;
+    height: 50px;
+  }
+
+  .image-container {
+    height: 50px;
+    width:50px;
+  }
