@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Book
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def home(request):
@@ -45,3 +45,15 @@ class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if current_user.has_perm('books.change_book'):
             return True
         return False
+
+class BookDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Book
+    template_name = 'books/book_delete_confirm.html'
+    context_object_name = 'book'
+    success_url = '/library/'
+    def test_func(self):
+        current_user = self.request.user
+        if current_user.has_perm('books.change_book'):
+            return True
+        return False
+
