@@ -6,6 +6,8 @@
                 {% if perms.books.change_book %}
                      <a class="btn btn-outline-secondary btn-sm" href="{% url 'book-update' book.id %}">Update</a>
                      <a class="btn btn-outline-danger btn-sm" href="{% url 'book-delete' book.id %}">Delete</a>
+                {% else %}
+                    <a class="btn btn-outline-secondary btn-sm" href="{% url 'book-request' book.id %}">Borrow {{ book.title }}</a>
                 {% endif %}
                 <div class="article-metadata">
                     <a class="mr-2" href="#">{{ book.author }}</a>

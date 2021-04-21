@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'background_task',
+    'borrows.apps.BorrowsConfig',
     'users.apps.UsersConfig',
     'books.apps.BooksConfig',
     'crispy_forms',
